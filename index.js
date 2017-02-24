@@ -168,11 +168,10 @@ Doctype.prototype.serialize = function() {
 
 function Text(data) {
   this.data = data;
-  this.escaped = escapeHtml(data);
 }
 Text.prototype = new Template();
 Text.prototype.get = function(context, unescaped) {
-  return (unescaped) ? this.data : this.escaped;
+  return this.data;
 };
 Text.prototype.appendTo = function(parent) {
   var node = document.createTextNode(this.data);
